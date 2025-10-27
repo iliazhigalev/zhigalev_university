@@ -13,6 +13,18 @@ services:
       - "5432:5432"
     networks:
       - local
+  db_test:
+    container_name: "postgres_db_test"
+    image: postgres:17-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres_test
+      - POSTGRES_PASSWORD=postgres_test
+      - POSTGRES_DB=postgres_test
+    ports:
+      - "5433:5432"
+    networks:
+      - local
 
 networks:
   local:
